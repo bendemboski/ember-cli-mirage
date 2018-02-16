@@ -128,7 +128,7 @@ module.exports = {
     },
     {
       name: 'fastboot-tests',
-      command: 'ember fastboot:test',
+      command: 'DEBUG=ember-cli-addon-tests ember fastboot:test',
       npm: {
         devDependencies: {}
       }
