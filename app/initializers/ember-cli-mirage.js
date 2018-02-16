@@ -15,8 +15,12 @@ import newStartMirage from 'ember-cli-mirage/start-mirage';
 export default {
   name: 'ember-cli-mirage-config',
   initialize(application) {
-    application.register('mirage:base-config', baseConfig, { instantiate: false });
-    application.register('mirage:test-config', testConfig, { instantiate: false });
+    if (baseConfig) {
+      application.register('mirage:base-config', baseConfig, { instantiate: false });
+    }
+    if (testConfig) {
+      application.register('mirage:test-config', testConfig, { instantiate: false });
+    }
 
     ENV['ember-cli-mirage'] = ENV['ember-cli-mirage'] || {};
     if (_shouldUseMirage(ENV.environment, ENV['ember-cli-mirage'])) {
